@@ -14,9 +14,11 @@ class Email {
 	createTransport() {
 		if (process.env.NODE_ENV === 'production') {
 			return nodemailer.createTransport({
-				service: 'SendGrid',
+				// service: 'SendGrid',
+        host: 'smtp.sendgrid.net',
+        port: 587,
 				auth: {
-					user: process.env.SENDGRID_NAME,
+					user: 'apikey',
 					pass: process.env.SENDGRID_API_KEY,
 				},
 			})
