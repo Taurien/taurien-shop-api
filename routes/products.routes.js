@@ -21,13 +21,14 @@ const {
 
 const router = express.Router();
 
+// Get all products
+router.route("/").get(getAllProducts)
+
 router.use(verifyJWT);
 
-// Get all products
 // Create new product
 router
   .route("/")
-  .get(getAllProducts)
   .post(
     // multerUpload.single('productImg'), //to upload one
     multerUpload.fields([
